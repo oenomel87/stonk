@@ -1,0 +1,23 @@
+schema {
+    query: Query
+}
+
+type Query {
+    user (
+        userId: ID
+        name: String
+        email: String
+    ) : User!
+
+    accounts (
+        userId: ID
+        accountNumber: String
+        status: AccountStatus
+    ) : [Account]!
+
+    account (
+        userId: ID
+        accountNumber: String
+        status: AccountStatus
+    ) : Account!
+}

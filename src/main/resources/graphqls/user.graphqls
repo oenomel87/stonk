@@ -1,0 +1,6 @@
+type User {
+    userId: ID!
+    name: String!
+    email: String!
+    accounts: [Account]
+}

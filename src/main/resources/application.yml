@@ -1,0 +1,38 @@
+server:
+  port: 8888
+  error:
+    include-stacktrace: always
+spring:
+  config:
+    activate:
+      on-profile: local
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      pool-name: app-hikari-pool
+      register-mbeans: false
+      connection-test-query: SELECT 1
+      username: sa
+      password: password
+      jdbc-url: jdbc:h2:file:./data/stonk
+  h2:
+    console:
+      enabled: true
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+    #com.querydsl.sql: DEBUG
