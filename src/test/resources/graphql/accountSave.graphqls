@@ -1,0 +1,11 @@
+mutation {
+    save (
+        input: {
+            accountNumber: "123"
+            amount: 100
+        }
+    ) {
+        accountNumber
+        amount
+    }
+}

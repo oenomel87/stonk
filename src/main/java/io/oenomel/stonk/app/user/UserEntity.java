@@ -1,5 +1,6 @@
 package io.oenomel.stonk.app.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.oenomel.stonk.app.account.AccountEntity;
 import lombok.Data;
 

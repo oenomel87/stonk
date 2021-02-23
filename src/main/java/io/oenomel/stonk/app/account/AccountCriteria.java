@@ -15,4 +15,6 @@ public class AccountCriteria {
     private String accountNumber;
 
     private Constants.AccountStatus status;
+
+    private Long amount;
 }

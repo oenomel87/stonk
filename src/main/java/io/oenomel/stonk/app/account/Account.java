@@ -29,6 +29,7 @@ public class Account implements Serializable {
         return Account.builder()
                 .accountId(e.getAccountId())
                 .accountNumber(e.getAccountNumber())
+                .amount(e.getAmount())
                 .status(e.getStatus())
                 .createdAt(e.getCreatedAt())
                 .suspendedAt(e.getSuspendedAt())

@@ -10,3 +10,8 @@ enum AccountStatus {
     INACTIVE
     SUSPENDED
 }
+
+input AccountInput {
+    accountNumber: String!
+    amount: Int!
+}

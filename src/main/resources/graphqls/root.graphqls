@@ -1,5 +1,6 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Query {
@@ -20,4 +21,9 @@ type Query {
         accountNumber: String
         status: AccountStatus
     ) : Account!
+}
+
+type Mutation {
+    save (input: AccountInput!) : Account!
+    withdrawal (input: AccountInput!) : Account!
 }

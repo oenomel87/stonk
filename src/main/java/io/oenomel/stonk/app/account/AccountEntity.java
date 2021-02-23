@@ -34,7 +34,7 @@ public class AccountEntity implements Serializable {
     @Column(name = "suspended_at")
     private LocalDateTime suspendedAt;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity user;
 }
