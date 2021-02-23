@@ -2,6 +2,7 @@ package io.oenomel.stonk.app.user;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import io.oenomel.stonk.app.account.QAccountEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
@@ -32,9 +33,19 @@ public class UserRepositoryImpl extends QuerydslRepositorySupport implements Use
 
     public Optional<UserEntity> fetchUser(UserCriteria criteria) {
         var user= QUserEntity.userEntity;
+        var account = QAccountEntity.accountEntity;
         var result = this.jpaQueryFactory.selectFrom(user)
                 .where(this.eqUserId(criteria), this.likeName(criteria), this.eqEmail(criteria))
+                .join(account).on(account.user.eq(user))
                 .fetchOne();
+
+        if(result != null) {
+            var accounts = this.jpaQueryFactory.selectFrom(account)
+                    .where(account.user.userId.eq(result.getUserId()))
+                    .fetch();
+            result.setAccounts(accounts);
+        }
+
         return Optional.ofNullable(result);
     }
 

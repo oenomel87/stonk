@@ -19,6 +19,6 @@ public class UserResolver implements GraphQLResolver<User> {
         var criteria = AccountCriteria.builder()
                 .userId(user.getUserId())
                 .build();
-        return this.accountService.fetcchAccounts(criteria);
+        return this.accountService.fetchAccounts(criteria);
     }
 }

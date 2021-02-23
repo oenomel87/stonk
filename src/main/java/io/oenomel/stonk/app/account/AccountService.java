@@ -16,7 +16,7 @@ public class AccountService {
 
     private final AccountRepository accountRepository;
 
-    public List<Account> fetcchAccounts(AccountCriteria criteria) {
+    public List<Account> fetchAccounts(AccountCriteria criteria) {
         var result = this.accountRepository.fetchAccounts(criteria);
         return result.orElse(new ArrayList<>())
                 .stream()

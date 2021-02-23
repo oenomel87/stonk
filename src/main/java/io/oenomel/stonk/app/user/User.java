@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,9 +27,10 @@ public class User implements Serializable {
     private List<Account> accounts;
 
     public static User convert(UserEntity e) {
-        var accounts = e.getAccounts().stream()
-                .map(Account::convert)
-                .collect(Collectors.toList());
+        var accounts = e.getAccounts() == null || e.getAccounts().isEmpty() ? new ArrayList<Account>()
+                : e.getAccounts().stream()
+                    .map(Account::convert)
+                    .collect(Collectors.toList());
         return User.builder()
                 .userId(e.getUserId())
                 .name(e.getName())

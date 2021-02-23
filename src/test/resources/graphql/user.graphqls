@@ -1,0 +1,10 @@
+query {
+    user {
+        userId
+        email
+        accounts {
+            accountNumber
+            amount
+        }
+    }
+}

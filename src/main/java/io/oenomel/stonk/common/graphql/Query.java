@@ -36,7 +36,7 @@ public class Query implements GraphQLQueryResolver {
                 .accountNumber(accountNumber)
                 .status(status)
                 .build();
-        return this.accountService.fetcchAccounts(criteria);
+        return this.accountService.fetchAccounts(criteria);
     }
 
     public Account account(Long userId, String accountNumber, Constants.AccountStatus status) {
